@@ -15,73 +15,39 @@ public class RuletaRusa {
         numAleatorio();
     }
 
-    public RuletaRusa() {
-    }
-
-    public RuletaRusa(ArrayList<String> jugadores, int posicionReal, Random random) {
-        this.jugadores = jugadores;
-        this.posicionReal = posicionReal;
-        this.random = random;
+    private void numAleatorio() {
+        if (!jugadores.isEmpty()) {
+            posicionReal = random.nextInt(jugadores.size());
+        }
     }
 
     public ArrayList<String> getJugadores() {
         return jugadores;
     }
 
-    public void setJugadores(ArrayList<String> jugadores) {
-        this.jugadores = jugadores;
-    }
-
     public int getPosicionReal() {
         return posicionReal;
     }
 
-    public void setPosicionReal(int posicionReal) {
-        this.posicionReal = posicionReal;
-    }
-
-    public Random getRandom() {
-        return random;
-    }
-
-    public void setRandom(Random random) {
-        this.random = random;
-    }
-
-
-    private void numAleatorio() {
-    }
-
-    @Override
-    public String toString() {
-        return "RuletaRusa{" +
-                "jugadores=" + jugadores +
-                ", posicionReal=" + posicionReal +
-                ", random=" + random +
-                '}';
-    }
-
-
     public boolean disparo(int jugadorIndex) {
-        System.out.println("El jugador" + jugadores.get(jugadorIndex) + "murio");
-        jugadores.remove(jugadorIndex);
-        if (jugadores.isEmpty()) {
-            System.out.println("Ya no hay jugadores");
-            return true;
+        System.out.println("El jugador " + jugadores.get(jugadorIndex) + " ha disparado...");
+
+        if (jugadorIndex == posicionReal) {
+            System.out.println("💀 " + jugadores.get(jugadorIndex) + " murió.");
+            jugadores.remove(jugadorIndex);
+
+            if (jugadores.isEmpty()) {
+                System.out.println("¡No quedan jugadores! Fin del juego.");
+                return true;
+            }  numAleatorio();
         } else {
-            System.out.println("El jugador" + jugadores.get(jugadorIndex) + "sigue vivo");
+            System.out.println("🎉 " + jugadores.get(jugadorIndex) + " sigue vivo.");
         }
 
-        numAleatorio();
         return false;
     }
-
-    public void posicionnueva(){
-        if (!jugadores.isEmpty()){
-            posicionReal= random.nextInt(jugadores.size());
-        }
-    }
 }
+
 
 
 
