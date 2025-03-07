@@ -12,7 +12,7 @@ public class Main {
         System.out.println("BIENVENIDO AL JUEGO RULETA RUSA");
         System.out.print("Número de jugadores: ");
         int numJugadores = scanner.nextInt();
-        scanner.nextLine(); // Consumir la línea restante
+        scanner.nextLine();
 
         for (int i = 0; i < numJugadores; i++) {
             System.out.print("Nombre del jugador " + (i + 1) + ": ");
@@ -30,7 +30,7 @@ public class Main {
             do {
                 System.out.print("Número del jugador a disparar (de 0 a " + (juegos.getJugadores().size() - 1) + "): ");
                 jugadorIndex = scanner.nextInt();
-                scanner.nextLine(); // Consumir la línea restante
+                scanner.nextLine();
 
                 if (jugadorIndex < 0 || jugadorIndex >= juegos.getJugadores().size()) {
                     System.out.println("Jugador no válido. Intenta de nuevo.");

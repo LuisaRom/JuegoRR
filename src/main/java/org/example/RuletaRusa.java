@@ -33,7 +33,7 @@ public class RuletaRusa {
         System.out.println("El jugador " + jugadores.get(jugadorIndex) + " ha disparado...");
 
         if (jugadorIndex == posicionReal) {
-            System.out.println("💀 " + jugadores.get(jugadorIndex) + " murió.");
+            System.out.println("El jugador" + jugadores.get(jugadorIndex) + " murió.");
             jugadores.remove(jugadorIndex);
 
             if (jugadores.isEmpty()) {
@@ -41,7 +41,7 @@ public class RuletaRusa {
                 return true;
             }  numAleatorio();
         } else {
-            System.out.println("🎉 " + jugadores.get(jugadorIndex) + " sigue vivo.");
+            System.out.println("El jugador " + jugadores.get(jugadorIndex) + " sigue vivo.");
         }
 
         return false;
